@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :blogs do
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :show, :create]
   end
 
   # scope shallow_path: "admin" do
@@ -29,7 +29,7 @@ end
 # Prefix Verb   URI Pattern                        Controller#Action
 # blog_comments GET    /blogs/:blog_id/comments(.:format)     comments#index
 #               POST   /blogs/:blog_id/comments(.:format)     comments#create
-# new_blog_comment GET    /blogs/:blog_id/comments/new(.:format) comments#new
+#  blog_comment GET    /blogs/:blog_id/comments/:id(.:format) comments#show
 #         blogs GET    /blogs(.:format)                       blogs#index
 #               POST   /blogs(.:format)                       blogs#create
 #          blog GET    /blogs/:id(.:format)                   blogs#show
@@ -40,5 +40,4 @@ end
 #         users POST   /users(.:format)                       users#create
 #          user GET    /users/:id(.:format)                   users#show
 #               DELETE /users/:id(.:format)                   users#destroy
-
 #        DELETE /users/:id(.:format)               users#destroy

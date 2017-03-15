@@ -52,11 +52,11 @@ class ApplicationController < ActionController::API
   end
 
   def admin?
-    # current_user.try(:admin?)
-    @current_user.admin?
+    admin = User.where(admin: true)
+    current_user.try(:admin?)
+    # current_user.admin?
   end
-  # The code below can be used to grant admin status to the current user.
-  # current_user.update_attribute :admin, true
+
   # https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
 end
 # http://railscasts.com/episodes/20-restricting-access?autoplay=true
