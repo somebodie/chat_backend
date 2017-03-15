@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    http_basic_authenticate_with :admin?, only: :destroy
 
     def index
       render json: Comment.all
