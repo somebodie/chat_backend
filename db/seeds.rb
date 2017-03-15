@@ -15,6 +15,6 @@ Comment.destroy_all
     Blog.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs, author: Faker::Book.author, media: Faker::LoremPixel.image, user_id: Faker::Number.between(1, 10))
 end
 
-# 10.times do
-#  Comment.create(tag: Faker::Hacker.abbreviation, post: Faker::ChuckNorris.fact, user_id: Faker::Number.between(1, 10), blog_id: Faker::Number.between(1, 10))
-# end
+10.times do
+ Comment.create(tag: Faker::Hacker.abbreviation, post: Faker::ChuckNorris.fact, user_id: Faker::Number.between(1, 10), blog_id: Faker::Number.between(1, 10))
+end
