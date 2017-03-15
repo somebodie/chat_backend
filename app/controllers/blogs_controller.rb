@@ -16,7 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = Blog.new(blog_params)
+    blog = Blog.create(blog_params)
 
     if blog.save
       render json: blog, status: :created
