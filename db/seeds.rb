@@ -6,15 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Blog.destroy_all
-Comment.destroy_all
-
-10.times do
-    Patient.create(name: Faker::Name.name, insurance_co: Faker::Beer.malts, gender: "F", new_patient: Faker::Boolean.boolean)
-    Doctor.create(name: Faker::Name.name, specialty: Faker::Hipster.word, gender: "F", insurance: Faker::Boolean.boolean)
-end
-
-10.times do
-    Appointment.create(location: Faker::University.name, day: Faker::Date.forward(23), reason: Faker::Hipster.sentence(6), patient_id: Faker::Number.between(1, 10), doctor_id: Faker::Number.between(1, 10))
-end
+# User.destroy_all
+# Blog.destroy_all
+# Comment.destroy_all
+#
+# 10.times do
+#     # User.create(name: Faker::Name.last_name , user_name:, reason: Faker::Hipster.sentence(6), patient_id: Faker::Number.between(1, 10), doctor_id: Faker::Number.between(1, 10))
+# end
+#
+# 10.times do
+#     # Blog.create(location: Faker::University.name, day: Faker::Date.forward(23), reason: Faker::Hipster.sentence(6), patient_id: Faker::Number.between(1, 10), doctor_id: Faker::Number.between(1, 10))
+# end
+#
+# 10.times do
+#     # Comment.create(location: Faker::University.name, day: Faker::Date.forward(23), reason: Faker::Hipster.sentence(6), patient_id: Faker::Number.between(1, 10), doctor_id: Faker::Number.between(1, 10))
+# end
