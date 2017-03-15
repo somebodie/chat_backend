@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize, except: [:login, :create]
 
   def create
-    user = User.new(user_params)
+    user = User.create(user_params)
 
     if user.save
       render json: {status: 200, message: "ok"}
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.required(:user).permit(:email, :password)
+    params.required(:user).permit(:name, :user_name, :email, :password_digest, :admin)
   end
 
 end
