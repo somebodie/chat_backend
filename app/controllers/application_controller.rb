@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # helper_method :current_user, :logged_in?, :admin?
+  helper_method :current_user, :logged_in?, :admin?
 
   # IS THE USER THE LOGGED IN
   def authenticate
