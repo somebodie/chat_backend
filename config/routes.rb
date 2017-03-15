@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :blogs, module: 'admin'
+  resources :blogs do
+    resources :comments
+  end
 
   resources :users, only: [:create, :show, :destroy] do
-    resources :comments
     collection do
       post '/login', to: 'users#login'
     end
