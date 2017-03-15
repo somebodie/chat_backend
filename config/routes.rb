@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :destroy] do
     collection do
       post '/login', to: 'users#login'
-    resources :comments, only: [:show, :edit, :update, :destroy]
     end
 
   end
@@ -41,11 +40,6 @@ end
 #               PUT    /blogs/:id(.:format)               blogs#update
 #               DELETE /blogs/:id(.:format)               blogs#destroy
 #   login_users POST   /users/login(.:format)             users#login
-#  edit_comment GET    /users/comments/:id/edit(.:format) comments#edit
-#               GET    /users/comments/:id(.:format)      comments#show
-#               PATCH  /users/comments/:id(.:format)      comments#update
-#               PUT    /users/comments/:id(.:format)      comments#update
-#               DELETE /users/comments/:id(.:format)      comments#destroy
 #         users POST   /users(.:format)                   users#create
 #          user GET    /users/:id(.:format)               users#show
 #               DELETE /users/:id(.:format)               users#destroy

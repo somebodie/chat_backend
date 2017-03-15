@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  blog_controller- before_filter :authorize_admin, :expect => :index or [:index; :show]
+  before_filter :admin?, :expect => :index or [:index, :show]
   # The code below can be used to grant admin status to the current user.
   # current_user.update_attribute :admin, true
   # https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
@@ -10,6 +10,10 @@ class BlogsController < ApplicationController
 
   def show
     render json: Blog.find(params[:id])
+  end
+
+  def new
+    blog = Blog.new(blog_params)
   end
 
   def create
