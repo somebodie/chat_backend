@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :blogs do
-    resources :comments
+
+  # resources :blogs do
+  #   resources :comments, only: [:index, :new, :create]
+  # end
+  #
+  # resources :comments, only: [:show, :edit, :update, :destroy]
+
+  scope shallow_path: "admin" do
+    resources :articles do
+      resources :comments, shallow: true
+    end
   end
 
   resources :users, only: [:create, :show, :destroy] do
