@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  helper_method :current_user, :logged_in?, :admin?
+  # helper_method :current_user, :logged_in?, :admin?
 
   # IS THE USER THE LOGGED IN
   def authenticate
@@ -7,9 +7,9 @@ class ApplicationController < ActionController::API
   end
 
   # DOES THE USER OWN THE RESOURCE THEY'RE ASKING FOR
-  def authorize
-    render json: {status: 401, message: "unauthorized"} unless current_user.id == params[:id].to_i
-  end
+  # def authorize
+  #   render json: {status: 401, message: "unauthorized"} unless current_user.id == params[:id].to_i
+  # end
 
   def bearer_token
     pattern = /^Bearer /
@@ -23,6 +23,9 @@ class ApplicationController < ActionController::API
     decoded_jwt = decode_token(bearer_token)
 
     @current_user ||= User.find(decoded_jwt["user"]["id"])
+    # if @current_user.try(:admin?)
+    #   authorize
+    # end
   end
 
   def decode_token(token)
@@ -51,7 +54,7 @@ class ApplicationController < ActionController::API
 
   def admin?
     # current_user.try(:admin?)
-    current_user.admin?
+    @current_user.admin?
   end
   # The code below can be used to grant admin status to the current user.
   # current_user.update_attribute :admin, true

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-    http_basic_authenticate_with :admin?, only: :destroy
+    before_filter :admin?, except: [:index, :show]
+    # http_basic_authenticate_with :admin?, only: :destroy
 
     def index
       render json: Comment.all

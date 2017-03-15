@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-  http_basic_authenticate_with :admin?, except: [:index, :show]
+  before_filter :admin?, except: [:index, :show]
+  # http_basic_authenticate_with :admin?, except: [:index, :show]
   # http://guides.rubyonrails.org/getting_started.html
 
   def index
