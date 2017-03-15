@@ -29,7 +29,8 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-      Comment.find(params[:id]).destroy
+      blog = Blog.find(params[:blog_id])
+      comment = blog.comment.find(params[:id]).destroy
 
       render json: {status: 204}
     end
