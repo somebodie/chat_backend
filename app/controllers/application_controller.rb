@@ -50,8 +50,3 @@ class ApplicationController < ActionController::API
 end
 
 # http://railscasts.com/episodes/20-restricting-access?autoplay=true
-
-# blog_controller- before_filter :authorize, :expect => :index or [:index; :show]
-# The code below can be used to grant admin status to the current user.
-# current_user.update_attribute :admin, true
-# https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
