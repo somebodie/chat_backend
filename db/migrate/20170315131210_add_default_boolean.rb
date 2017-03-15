@@ -3,3 +3,5 @@ class AddDefaultBoolean < ActiveRecord::Migration[5.0]
     change_column :users, :admin, :boolean, null: false, default: false
   end
 end
+
+# https://robots.thoughtbot.com/avoid-the-threestate-boolean-problem
