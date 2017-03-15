@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
     end
 
     def create
-      comment = Comment.new(comment_params)
+      blog = Blog.find(params[:blog_id])
+      comment = blog.comment.new(comment_params)
 
       if comment.save
         render json: comment, status: :created
