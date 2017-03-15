@@ -15,7 +15,7 @@ Comment.destroy_all
 end
 
 10.times do
-    Blog.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs, author: Faker::Book.author, media: Faker::LoremPixel.image, created_at: Faker::Date.backward(14), updated_at: Faker::Date.between(2.days.ago, Date.today), user_id: Faker::Number.between(1, 10))
+    Blog.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs, author: Faker::Book.author, media: Faker::LoremPixel.image, user_id: Faker::Number.between(1, 10))
 end
 
 10.times do
