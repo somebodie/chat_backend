@@ -22,8 +22,8 @@ class ApplicationController < ActionController::API
     decoded_jwt = decode_token(bearer_token)
 
     @current_user ||= User.find(decoded_jwt["user"]["id"])
-    # if @current_user.try(:admin?)
-    #   authorize
+    # if   @current_user == User.where(admin: true)
+    #   admin = true
     # end
   end
 
@@ -52,9 +52,9 @@ class ApplicationController < ActionController::API
   end
 
   def admin?
-    admin = User.where(admin: true)
-    current_user.try(:admin?)
-    # current_user.admin?
+    @admin = User.where(admin: true)
+    # current_user.try(:admin?)
+    current_user == admin?
   end
 
   # https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
