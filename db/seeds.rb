@@ -12,12 +12,9 @@ Comment.destroy_all
 
 10.times do
     User.create(name: Faker::Name.first_name , user_name: Faker::Internet.user_name, email: Faker::Internet.email, password_digest: Faker::Internet.password, admin: Faker::Boolean.boolean)
-end
-
-10.times do
     Blog.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs, author: Faker::Book.author, media: Faker::LoremPixel.image, user_id: Faker::Number.between(1, 10))
 end
 
-10.times do
-    Comment.create(tag: Faker::Hacker.abbreviation, post: Faker::ChuckNorris.fact, user_id: Faker::Number.between(1, 10), blog_id: Faker::Number.between(1, 10))
-end
+# 10.times do
+#  Comment.create(tag: Faker::Hacker.abbreviation, post: Faker::ChuckNorris.fact, user_id: Faker::Number.between(1, 10), blog_id: Faker::Number.between(1, 10))
+# end
