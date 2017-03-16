@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_filter :admin?, except: [:index, :show]
+    before_filter :admin?, except: [:index, :show, :create]
     # http_basic_authenticate_with :admin?, only: :destroy
 
     def index

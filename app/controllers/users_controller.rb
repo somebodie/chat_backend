@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       render json: {status: 401, message: "unauthorized"}
     end
   end
-  
+
   def make_admin
     # The code below can be used to grant admin status to the current user.
     current_user.update_attribute :admin, true
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.required(:user).permit(:name, :user_name, :email, :password_digest, :admin)
+    params.required(:user).permit(:email, :password)
   end
 
 end

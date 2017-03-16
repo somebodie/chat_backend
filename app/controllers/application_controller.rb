@@ -6,9 +6,9 @@ class ApplicationController < ActionController::API
   end
 
   # DOES THE USER OWN THE RESOURCE THEY'RE ASKING FOR
-  # def authorize
-  #   render json: {status: 401, message: "unauthorized"} unless current_user.id == params[:id].to_i
-  # end
+  def authorize
+    render json: {status: 401, message: "unauthorized"} unless current_user.id == params[:id].to_i
+  end
 
   def bearer_token
     pattern = /^Bearer /
@@ -37,16 +37,16 @@ class ApplicationController < ActionController::API
 
   protected
 
-  def authorize
-    unless admin?
-      # sends message if not current user
-      flash[:error] = "unauthorized access"
-      redirect_to home_path
-      # redirects to if unauthorized
-      false
-      render json: {status: 401, message: "unauthorized"}
-    end
-  end
+  # def authorize
+  #   unless admin?
+  #     # sends message if not current user
+  #     flash[:error] = "unauthorized access"
+  #     redirect_to home_path
+  #     # redirects to if unauthorized
+  #     false
+  #     render json: {status: 401, message: "unauthorized"}
+  #   end
+  # end
 
   def admin?
     admin = User.where(admin: true)
