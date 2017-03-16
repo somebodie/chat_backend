@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :blogs do
-    resources :comments, only: [:index, :show, :create]
+    resources :comments
   end
 
   # scope shallow_path: "admin" do
@@ -31,6 +31,9 @@ end
 # blog_comments GET    /blogs/:blog_id/comments(.:format)     comments#index
 #               POST   /blogs/:blog_id/comments(.:format)     comments#create
 #  blog_comment GET    /blogs/:blog_id/comments/:id(.:format) comments#show
+#               PATCH  /blogs/:blog_id/comments/:id(.:format) comments#update
+#               PUT    /blogs/:blog_id/comments/:id(.:format) comments#update
+#               DELETE /blogs/:blog_id/comments/:id(.:format) comments#destroy
 #         blogs GET    /blogs(.:format)                       blogs#index
 #               POST   /blogs(.:format)                       blogs#create
 #          blog GET    /blogs/:id(.:format)                   blogs#show
@@ -40,4 +43,4 @@ end
 #   login_users POST   /users/login(.:format)                 users#login
 #   admin_users PATCH  /users/admin(.:format)                 users#update
 #         users POST   /users(.:format)                       users#create
-#          user GET    /users/:id(.:format)                   users#show
+#          user GET    /users/:id(.:format)                   users#show                  users#show
