@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   # /admin/admin_id/blogs/blogs_id/comments/comments_id
   # /blogs/comments
 
-  resources :users, only: [:create, :show, :destroy] do
+  resources :users, only: [:create, :show, :make_admin] do
     collection do
       post '/login', to: 'users#login'
+      patch '/admin', to: 'users#update'
     end
   end
 end
@@ -37,7 +38,6 @@ end
 #               PUT    /blogs/:id(.:format)                   blogs#update
 #               DELETE /blogs/:id(.:format)                   blogs#destroy
 #   login_users POST   /users/login(.:format)                 users#login
+#   admin_users PATCH  /users/admin(.:format)                 users#update
 #         users POST   /users(.:format)                       users#create
 #          user GET    /users/:id(.:format)                   users#show
-#               DELETE /users/:id(.:format)                   users#destroy
-#        DELETE /users/:id(.:format)               users#destroy
