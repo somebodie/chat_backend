@@ -11,9 +11,9 @@ class BlogsController < ApplicationController
     render json: Blog.find(params[:id])
   end
 
-  def new
-    blog = Blog.new(blog_params)
-  end
+  # def new
+  #   blog = Blog.new(blog_params)
+  # end
 
   def create
     blog = Blog.create(blog_params)
