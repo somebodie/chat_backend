@@ -34,14 +34,14 @@ class UsersController < ApplicationController
   private
 
   def token(id, email)
-    JWT.encode(payload(id, email), 'someawesomesecret', 'HS256')
+    JWT.encode(payload(id, email), 'aisforawesome', 'HS256')
   end
 
   def payload(id, email)
     {
-      exp: (Time.now + 15.minutes).to_i,
+      exp: (Time.now + 45.minutes).to_i,
       iat: Time.now.to_i,
-      iss: 'wdir-matey',
+      iss: 'somebody',
       user: {
         id: id,
         email: email
