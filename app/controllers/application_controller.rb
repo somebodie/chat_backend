@@ -31,28 +31,5 @@ class ApplicationController < ActionController::API
   end
 # https://github.com/ga-students/wdi-remote-matey/blob/30a977fbc9adcfd5e361c7bb9bf2a2c8fc7e8ab9/unit_04/w13d02/instructor_notes/giphy_api/app/controllers/application_controller.rb
 
-  def logged_in
-    current_user != nil
-  end
-
-  protected
-
-  # def authorize
-  #   unless admin?
-  #     # sends message if not current user
-  #     flash[:error] = "unauthorized access"
-  #     redirect_to home_path
-  #     # redirects to if unauthorized
-  #     false
-  #     render json: {status: 401, message: "unauthorized"}
-  #   end
-  # end
-
-  def admin
-    # admin = User.where(admin: true)
-      current_user.admin?
-  end
-
-  # https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
 end
 # http://railscasts.com/episodes/20-restricting-access?autoplay=true

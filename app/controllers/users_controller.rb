@@ -26,11 +26,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def make_admin
-    # The code below can be used to grant admin status to the current user.
-    current_user.update_attribute :admin, true
-  end
-
   private
 
   def token(id, email)
