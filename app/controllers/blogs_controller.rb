@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_filter :admin?, except: [:index, :show]
+  before_action :admin, except: [:index, :show]
   # http_basic_authenticate_with :admin?, except: [:index, :show]
   # http://guides.rubyonrails.org/getting_started.html
 
@@ -43,6 +43,6 @@ class BlogsController < ApplicationController
   private
 
     def blog_params
-      params.require(:blog).permit(:title, :body, :author, :media, :created_at, :updated_at)
+      params.require(:blog).permit(:title, :body, :author, :media, :user_id)
     end
 end

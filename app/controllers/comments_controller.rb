@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_filter :admin?, except: [:index, :show, :create]
+    before_filter :admin, except: [:index, :show, :create]
     # http_basic_authenticate_with :admin?, only: :destroy
 
     def index
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
     def create
       blog = Blog.find(params[:blog_id])
-      comment = blog.comment.new(comment_params)
+      comment = blog.comments.new(comment_params)
 
       if comment.save
         render json: comment, status: :created
