@@ -49,8 +49,8 @@ class AdminsController < ApplicationController
   # end
 
   def admin
-    # admin = User.where(admin: true)
-      current_user.admin?
+    admin = User.where(admin: true)
+    render json: {status: 401, message: "unauthorized"} unless current_user.admin? == true
   end
 
   def logged_in?
