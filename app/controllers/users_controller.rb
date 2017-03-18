@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:login, :create]
+  # after_action :create, :login
 
   def create
     user = User.create(user_params)
