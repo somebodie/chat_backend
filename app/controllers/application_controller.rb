@@ -31,11 +31,18 @@ class ApplicationController < ActionController::API
   end
 # https://github.com/ga-students/wdi-remote-matey/blob/30a977fbc9adcfd5e361c7bb9bf2a2c8fc7e8ab9/unit_04/w13d02/instructor_notes/giphy_api/app/controllers/application_controller.rb
 
+  protected
+
+  def logged_in
+    current_user != nil
+  end
+
   def admin
     # admin = User.where(admin: true)
     render json: {status: 401, message: "unauthorized"} unless current_user.admin?
     # current_user.admin?
   end
-  
+
+# http://guides.rubyonrails.org/action_controller_overview.html#filters
 end
 # http://railscasts.com/episodes/20-restricting-access?autoplay=true

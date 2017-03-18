@@ -48,9 +48,5 @@ class AdminsController < ApplicationController
   #   end
   # end
 
-  def logged_in
-    current_user != nil
-  end
-
   # https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
 end
