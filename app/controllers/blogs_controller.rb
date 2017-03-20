@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
   end
 
   def update
-    blog = Blog.find(params[:id])
+    blog = Blog.find(params[:blog_id])
     if blog.update(blog_params)
       render json: blog
     else
